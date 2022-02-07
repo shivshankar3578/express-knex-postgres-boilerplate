@@ -1,11 +1,12 @@
-exports.up = function(knex, Promise) {
-  return knex.schema.createTable("users", tbl => {
-    tbl.increments();
+const { Knex } = require("knex");
 
-    tbl.string("name");
+exports.up = function ( /** @type {Knex} */knex, Promise) {
+  return knex.schema.createTable("users", tbl => {
+    tbl.increments()
+    tbl.string("name")
   });
 };
 
-exports.down = function(knex, Promise) {
+exports.down = function (knex, Promise) {
   return knex.schema.dropTableIfExists("users");
 };

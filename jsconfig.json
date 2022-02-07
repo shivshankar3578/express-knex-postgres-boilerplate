@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution":"Node"
+    },
+    "exclude": [
+      "node_modules"
+    ],
+    "include": ["typings/index.d.ts"]
+}

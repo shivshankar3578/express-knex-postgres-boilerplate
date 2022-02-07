@@ -52,7 +52,7 @@ describe("users endpoints", () => {
       const response = await request(server)
         .get("/api/users/1")
         .expect(200);
-      expect(response.body[0].name).toBe(expected.name);
+      expect(response.body.name).toBe(expected.name);
     });
   });
   describe("POST /", () => {
@@ -65,11 +65,11 @@ describe("users endpoints", () => {
         .expect("Content-Type", /json/)
         .expect(201);
 
-      expect(posting.body).toEqual([4]);
+      expect(posting.body).toEqual([{ id: 4 }]);
     });
     it("its the right user", async () => {
       const getUser = await request(server).get("/api/users/4");
-      expect(getUser.body[0].name).toEqual("Test");
+      expect(getUser.body.name).toEqual("Test");
     });
   });
 
@@ -88,7 +88,7 @@ describe("users endpoints", () => {
     });
     it("its the right user", async () => {
       const getUser = await request(server).get("/api/users/4");
-      expect(getUser.body[0].name).toEqual("updatedTest");
+      expect(getUser.body.name).toEqual("updatedTest");
     });
   });
 

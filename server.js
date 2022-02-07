@@ -4,7 +4,7 @@ const server = express();
 const morgan = require("morgan");
 const cors = require("cors");
 
-const usersRouter = require("./routes/users-router.js");
+const usersRouter = require("./routes/users.js");
 
 // Middleware
 server.use(cors());
@@ -14,9 +14,10 @@ server.use(express.json());
 // Routers
 server.use("/api/users", usersRouter);
 
-//Routes
-server.get("/", (req, res) => {
-  res.status(200).json({ hello: "World!" });
+// error handler
+server.use(function (err, req, res, next) {
+  return res.status(500).json({ message: err.message })
+
 });
 
 module.exports = server;

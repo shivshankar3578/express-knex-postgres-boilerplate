@@ -6,34 +6,40 @@
   "scripts": {
     "test": "DB_ENV=testing jest --watch --verbose",
     "server": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "db:up": "knex migrate:latest",
+    "db:seed": "knex seed:run"
   },
   "jest": {
     "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/raberin/express-knex-postgres-boilerplate.git"
+    "url": ""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/raberin/express-knex-postgres-boilerplate/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/raberin/express-knex-postgres-boilerplate#readme",
+  "homepage": "",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "knex": "^0.20.4",
-    "morgan": "^1.9.1",
-    "pg": "^7.15.2"
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "knex": "^1.0.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.3"
   },
   "devDependencies": {
-    "cross-env": "^6.0.3",
-    "jest": "^24.9.0",
-    "nodemon": "^2.0.2",
-    "supertest": "^4.0.2"
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.4.0",
+    "@types/knex": "^0.16.1",
+    "@types/node": "^17.0.15",
+    "cross-env": "^7.0.3",
+    "jest": "^27.5.0",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }

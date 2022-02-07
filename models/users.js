@@ -1,8 +1,17 @@
+
 const db = require("../config/dbConfig.js");
 
-// GET ALL USERS
-const find = () => {
-  return db("users");
+const findAll = async () => {
+  return await db("users")
+}
+
+
+const findOrRaise = async (/** @type {{id?: number, name?:string}} */ cond) => {
+  const users = await db("users").where(cond)
+  if (!users || !users.length) {
+    throw Error("Not a valid user")
+  }
+  return users[0]
 };
 
 // GET SPECIFIC USER BY ID
@@ -34,7 +43,8 @@ const removeUser = id => {
 };
 
 module.exports = {
-  find,
+  findAll,
+  findOrRaise,
   findById,
   addUser,
   updateUser,
